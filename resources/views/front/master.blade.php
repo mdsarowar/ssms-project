@@ -8,6 +8,7 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{asset('/')}}front/css/bootstrap.css">
     <link rel="stylesheet" href="{{asset('/')}}front/css/helper.css">
+
     <style>
         .x{
             margin-top: 1px;

@@ -26,7 +26,37 @@
                     </ul>
                 </li>
 
-                <li class="menu-title">Apps</li>
+
+
+                <li class="menu-title">teacher module</li>
+
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-layout"></i>
+                        <span>Teacher</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('create_teacher')}}">Create Teacher</a></li>
+                        <li><a href="{{route('manage_teacher')}}">Manage Teacher</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-title">teacher module</li>
+
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-layout"></i>
+                        <span>Student Module</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="">Create Student</a></li>
+                        <li><a href="">Manage Student</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-title">................</li>
 
                 <li>
                     <a href="calendar.html" class=" waves-effect">
