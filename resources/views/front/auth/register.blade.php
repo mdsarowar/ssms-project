@@ -36,7 +36,7 @@
                                 <div class="form-group row mt-3">
                                     <label for="" class="col-md-4 col-form-label">Confirm Password</label>
                                     <div class="col-md-8">
-                                        <input type="password_confirmation" class="form-control" name="password">
+                                        <input type="password" class="form-control" name="password_confirmation">
                                     </div>
                                 </div>
                                 <div class="form-group row mt-3">

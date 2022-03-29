@@ -17,8 +17,6 @@ use App\Http\Controllers\Admin\RoleController;
 */
 
 Route::get('/',[PageViewController::class,'home'])->name('home');
-Route::get('/login',[PageViewController::class,'home'])->name('login');
-//Route::get('/register',[PageViewController::class,'register'])->name('register');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('admin.home.home');
@@ -27,4 +25,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('/create_role',[RoleController::class,'createRole'])->name('create_role');
     Route::post('/new_role',[RoleController::class,'newRole'])->name('new_role');
+    Route::get('/manage_role',[RoleController::class,'manageRole'])->name('manage_role');
 });

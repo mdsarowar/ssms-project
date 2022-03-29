@@ -22,7 +22,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('create_role')}}">Create Role</a></li>
-                        <li><a href="layouts-light-sidebar.html">Manage Role</a></li>
+                        <li><a href="{{route('manage_role')}}">Manage Role</a></li>
                     </ul>
                 </li>
 

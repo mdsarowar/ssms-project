@@ -17,4 +17,10 @@ class RoleController extends Controller
         return redirect()->back()->with('message','Role create successfully');
 
     }
+
+    public function manageRole(){
+        return view('admin.role.role-view',[
+            'roles'=>Role::all(),
+        ]);
+    }
 }
