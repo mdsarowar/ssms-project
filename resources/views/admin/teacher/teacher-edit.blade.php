@@ -12,7 +12,7 @@
                         <h2>Create Role</h2>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('update_teacher')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('update_teacher',['id'=>$teacher->id])}}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <input type="hidden" name="teacher_id" value="{{$teacher->id}}">

@@ -36,7 +36,7 @@
                                         <td>{{$teacher->teacher_name}}</td>
                                         <td>{{$teacher->teacher_email}}</td>
                                         <td>{{$teacher->teacher_phone}}</td>
-                                        <td>{{$teacher->teacher_code}}</td>
+                                        <td>{{$teacher->code}}</td>
                                         <td>
                                             <img src="{{asset($teacher->teacher_image)}}" style="height: 100px;width: 100px" alt="">
                                         </td>
@@ -51,7 +51,7 @@
                                             <a href="{{route('teacher_edit',['id'=>$teacher->id])}} " class="btn btn-{{$teacher->status ==0 ? 'primary':'secondary'}}">
                                                 <i class="fa-solid fa-arrow-{{$teacher->status==0?'down':'up'}}"></i>
                                             </a>
-                                            <a href="" class="btn btn-danger">
+                                            <a href="{{route('teacher_delete',['id'=>$teacher->id])}}" class="btn btn-danger">
                                                 <i class="fa-solid fa-trash"></i>
                                             </a>
 

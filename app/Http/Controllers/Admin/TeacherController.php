@@ -31,8 +31,17 @@ class TeacherController extends Controller
         ]);
     }
 
-    public function updateTeacher(Request $request){
-        Teacher::saveDate($request);
+    public function updateTeacher(Request $request,$id){
+        Teacher::saveDate($request,$id);
         return redirect(route('manage_teacher'))->with('message','Teacher update successfully');
+    }
+
+    public function teacherDelete($id){
+        $teacher=Teacher::findOrFail($id);
+        if (file_exists($teacher->teacher_image)){
+            unlink($teacher->teacher_image);
+        }
+        $teacher->delete();
+        return redirect()->back()->with('messager','Teacher delete successfully');
     }
 }

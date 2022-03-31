@@ -18,6 +18,18 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-layout"></i>
+                        <span>User Module</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="">Create user</a></li>
+                        <li><a href="{{route('manage_user')}}">Manage user</a></li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-layout"></i>
                         <span>Role</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
