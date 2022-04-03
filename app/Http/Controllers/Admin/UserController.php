@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use function Symfony\Component\Finder\name;
 
 class UserController extends Controller
 {
@@ -17,7 +18,16 @@ class UserController extends Controller
         ]);
     }
     public function newUser(Request $request){
-        return $request;
+
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|email|unique:users,email',
+            'password'=>'required|min:8',
+            'role'=>'required',
+        ]);
+
+        User::createNewUserByAdmin($request);
+        return redirect()->back()->with('message','user create successfully');
     }
     public function editUser($id){
         return view('admin.user.edit',[
@@ -25,7 +35,8 @@ class UserController extends Controller
         ]);
     }
     public function updateUser(Request $request,$id){
-        return $request;
+        User::updateUser($request,$id);
+        return redirect('/manage_user')->with('message','user update successfully');
     }
     public function deleteUser($id){
         return redirect()->back()->with('message','User delete successfully');

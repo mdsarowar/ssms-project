@@ -6,6 +6,7 @@ use App\Http\Controllers\Front\PageViewController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\TeacherController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +28,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/create_user',[UserController::class,'createUser'])->name('create_user');
 Route::get('/manage_user',[UserController::class,'manageUser'])->name('manage_user');
 Route::post('/new_user',[UserController::class,'newUser'])->name('new_user');
-Route::get('/edit_user/{id}',[UserController::class,'editUser'])->name('edit_user');
+Route::get('/user_edit/{id}',[UserController::class,'editUser'])->name('user_edit');
 Route::post('/update_user/{id}',[UserController::class,'updateUser'])->name('update_user');
-Route::get('/delete_user/{id}',[UserController::class,'deleteUser'])->name('delete_user');
+Route::get('/user_delete/{id}',[UserController::class,'deleteUser'])->name('user_delete');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::middleware('is_admin')->get('/create_role',[RoleController::class,'createRole'])->name('create_role');
@@ -43,3 +44,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::post('/update_teacher/{id}',[TeacherController::class,'updateTeacher'])->name('update_teacher');
     Route::get('/teacher_delete/{id}',[TeacherController::class,'teacherDelete'])->name('teacher_delete');
 });
+//student module
+
+Route::get('/manage_student_info',[StudentController::class,'manageStudent'])->name('manage_student_info');
+Route::get('/create_student_info',[StudentController::class,'createStudent'])->name('create_student_info');
+Route::post('/new_student_info',[StudentController::class,'newStudent'])->name('new_student_info');
+Route::get('/edit_student_info/{id}',[StudentController::class,'editStudent'])->name('edit_student_info');
+Route::post('/update_student_info/{id}',[StudentController::class,'updateStudent'])->name('update_student_info');
+Route::post('/delete_student_info/{id}',[StudentController::class,'deleteStudent'])->name('delete_student_info');

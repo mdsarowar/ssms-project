@@ -21,7 +21,7 @@
                         <span>User Module</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="">Create user</a></li>
+                        <li><a href="{{route('create_user')}}">Create user</a></li>
                         <li><a href="{{route('manage_user')}}">Manage user</a></li>
                     </ul>
                 </li>
@@ -46,7 +46,7 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-layout"></i>
-                        <span>Teacher</span>
+                        <span>Teacher info</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('create_teacher')}}">Create Teacher</a></li>
@@ -54,17 +54,17 @@
                     </ul>
                 </li>
 
-                <li class="menu-title">teacher module</li>
+                <li class="menu-title">Student module</li>
 
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-layout"></i>
-                        <span>Student Module</span>
+                        <span>Student Info</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="">Create Student</a></li>
-                        <li><a href="">Manage Student</a></li>
+                        <li><a href="{{route('create_student_info')}}">add Student</a></li>
+                        <li><a href="{{route('manage_student_info')}}">Manage Student</a></li>
                     </ul>
                 </li>
 
