@@ -10,7 +10,7 @@ class StudentController extends Controller
 {
     public function manageStudent(){
         return view('student.student.manage',[
-            'students'=>StudentData::all(),
+            'students'=>StudentData::latest()->get(),
         ]);
     }
     public function createStudent(){
@@ -18,7 +18,8 @@ class StudentController extends Controller
     }
 
     public function newStudent(Request $request){
-        return $request;
+        StudentData::saveStudentInfo($request);
+        return redirect()->back()->with('message','save successfully');
 
     }
 
@@ -37,5 +38,9 @@ class StudentController extends Controller
 
         $student->delete();
         return redirect()->back()->with('message','delete successfully');
+    }
+
+    public function changeStudentstatus($id){
+        $student=StudentData::findOrFail($id);
     }
 }

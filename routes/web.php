@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\TeacherController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\StudentController;
+use App\Http\Controllers\Admin\SubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('/teacher_edit/{id}',[TeacherController::class,'teacherEdit'])->name('teacher_edit');
     Route::post('/update_teacher/{id}',[TeacherController::class,'updateTeacher'])->name('update_teacher');
     Route::get('/teacher_delete/{id}',[TeacherController::class,'teacherDelete'])->name('teacher_delete');
+    Route::get('/change_teacher_status/{id}',[TeacherController::class,'changeTeacherStatus'])->name('change_teacher_status');
 });
 //student module
 
@@ -52,3 +54,15 @@ Route::post('/new_student_info',[StudentController::class,'newStudent'])->name('
 Route::get('/edit_student_info/{id}',[StudentController::class,'editStudent'])->name('edit_student_info');
 Route::post('/update_student_info/{id}',[StudentController::class,'updateStudent'])->name('update_student_info');
 Route::post('/delete_student_info/{id}',[StudentController::class,'deleteStudent'])->name('delete_student_info');
+Route::post('/change_student_status/{id}',[StudentController::class,'changeStudentstatus'])->name('change_student_status');
+
+//teacher module
+
+Route::get('/create_subject',[SubjectController::class,'createSubject'])->name('create_subject');
+Route::get('/manage_subject',[SubjectController::class,'manageSubject'])->name('manage_subject');
+Route::post('/new_subject',[SubjectController::class,'newSubject'])->name('new_subject');
+Route::get('/subject_edit/{id}',[SubjectController::class,'subjectEdit'])->name('subject_edit');
+Route::post('/subject_teacher/{id}',[SubjectController::class,'updateSubject'])->name('update_subject');
+Route::get('/subject_delete/{id}',[SubjectController::class,'subjectDelete'])->name('tsubject_delete');
+Route::get('/change_subject_status/{id}',[SubjectController::class,'changeSubjectStatus'])->name('change_subject_status');
+

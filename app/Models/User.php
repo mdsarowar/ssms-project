@@ -61,14 +61,32 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    protected static $teacher;
+    protected static $student;
     public static function createNewUserByAdmin($request){
 
-        $user=new User();
-        $user->name      =$request->name;
-        $user->email     =$request->email;
-        $user->password     =bcrypt($request->password);
-        $user->role     =$request->role;
-        $user->save();
+        self::$user=new User();
+        self::$user->name      =$request->name;
+        self::$user->email     =$request->email;
+        self::$user->password     =bcrypt($request->password);
+        self::$user->role     =$request->role;
+        self::$user->save();
+        if($request->role=='reacher'){
+            self::$teacher=new Teacher();
+            self::$teacher->name=$request->name;
+            self::$teacher->email=$request->email;
+            self::$teacher->user_id=self::$user->id;
+            self::$teacher->save();
+        }elseif ($request->role=='user'){
+            self::$student=new StudentData();
+            self::$student->name=$request->name;
+            self::$student->email=$request->email;
+            self::$student->user_id=self::$user->id;
+            self::$student->save();
+        }
+
 
     }
 
@@ -80,5 +98,17 @@ class User extends Authenticatable
         self::$user->email  =$request->email;
         self::$user->role   =$request->role;
         self::$user->save();
+
+        if($request->role=='reacher'){
+            self::$teacher=Teacher::where('user_id',$id)->first();
+            self::$teacher->name=$request->name;
+            self::$teacher->email=$request->email;
+            self::$teacher->save();
+        }elseif ($request->role=='user'){
+            self::$student=StudentData::where('user_id',$id)->first;
+            self::$student->name=$request->name;
+            self::$student->email=$request->email;
+            self::$student->save();
+        }
     }
 }
