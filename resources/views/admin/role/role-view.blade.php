@@ -30,7 +30,9 @@
                                             <td>{{$role->status}}</td>
 
                                             <td>
-                                                <a href="">edit</a>
+                                                <a href="" class="btn btn-primary">
+                                                    <i></i>
+                                                </a>
                                             </td>
                                         </tr>
 

@@ -18,6 +18,8 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    protected static $user;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -27,6 +29,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -58,4 +61,54 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    protected static $teacher;
+    protected static $student;
+    public static function createNewUserByAdmin($request){
+
+        self::$user=new User();
+        self::$user->name      =$request->name;
+        self::$user->email     =$request->email;
+        self::$user->password     =bcrypt($request->password);
+        self::$user->role     =$request->role;
+        self::$user->save();
+        if($request->role=='reacher'){
+            self::$teacher=new Teacher();
+            self::$teacher->name=$request->name;
+            self::$teacher->email=$request->email;
+            self::$teacher->user_id=self::$user->id;
+            self::$teacher->save();
+        }elseif ($request->role=='user'){
+            self::$student=new StudentData();
+            self::$student->name=$request->name;
+            self::$student->email=$request->email;
+            self::$student->user_id=self::$user->id;
+            self::$student->save();
+        }
+
+
+    }
+
+    public static function updateUser($request,$id){
+
+
+        self::$user=User::find($id);
+        self::$user->name   =$request->name;
+        self::$user->email  =$request->email;
+        self::$user->role   =$request->role;
+        self::$user->save();
+
+        if($request->role=='reacher'){
+            self::$teacher=Teacher::where('user_id',$id)->first();
+            self::$teacher->name=$request->name;
+            self::$teacher->email=$request->email;
+            self::$teacher->save();
+        }elseif ($request->role=='user'){
+            self::$student=StudentData::where('user_id',$id)->first;
+            self::$student->name=$request->name;
+            self::$student->email=$request->email;
+            self::$student->save();
+        }
+    }
 }
