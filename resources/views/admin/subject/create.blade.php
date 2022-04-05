@@ -16,23 +16,17 @@
                             @csrf
 
                             <div class="form-group row mt-3">
-                                <label for="" class="col-md-4 col-form-label">Teacher ID</label>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" name="teacher_id">
-                                </div>
-                            </div>
-                            <div class="form-group row mt-3">
                                 <label for="" class="col-md-4 col-form-label">Title</label>
                                 <div class="col-md-8">
                                     <input type="text" class="form-control" name="title">
                                 </div>
                             </div>
-                            <div class="form-group row mt-3">
-                                <label for="" class="col-md-4 col-form-label">Code</label>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" name="code">
-                                </div>
-                            </div>
+{{--                            <div class="form-group row mt-3">--}}
+{{--                                <label for="" class="col-md-4 col-form-label">Code</label>--}}
+{{--                                <div class="col-md-8">--}}
+{{--                                    <input type="text" class="form-control" name="code">--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
                             <div class="form-group row mt-3">
                                 <label for="" class="col-md-4 col-form-label">Fee</label>

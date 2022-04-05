@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\SubjectController;
 */
 
 Route::get('/',[PageViewController::class,'home'])->name('home');
+Route::get('/subject_details/{id}',[PageViewController::class,'subjectDetails'])->name('subject_details');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('admin.home.home');

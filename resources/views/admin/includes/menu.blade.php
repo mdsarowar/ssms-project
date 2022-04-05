@@ -54,6 +54,17 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-layout"></i>
+                        <span>Subject Info</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('create_subject')}}">add Subject</a></li>
+                        <li><a href="{{route('manage_subject')}}">Manage Subject</a></li>
+                    </ul>
+                </li>
+
                 <li class="menu-title">Student module</li>
 
 
@@ -68,19 +79,10 @@
                     </ul>
                 </li>
 
-                <li class="menu-title">Subject module</li>
 
 
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-layout"></i>
-                        <span>Subject Info</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('create_subject')}}">add Subject</a></li>
-                        <li><a href="{{route('manage_subject')}}">Manage Subject</a></li>
-                    </ul>
-                </li>
+
+
 
                 <li class="menu-title">................</li>
 
