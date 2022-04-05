@@ -56,13 +56,13 @@ Route::post('/update_student_info/{id}',[StudentController::class,'updateStudent
 Route::post('/delete_student_info/{id}',[StudentController::class,'deleteStudent'])->name('delete_student_info');
 Route::post('/change_student_status/{id}',[StudentController::class,'changeStudentstatus'])->name('change_student_status');
 
-//teacher module
+//subject module
 
 Route::get('/create_subject',[SubjectController::class,'createSubject'])->name('create_subject');
 Route::get('/manage_subject',[SubjectController::class,'manageSubject'])->name('manage_subject');
 Route::post('/new_subject',[SubjectController::class,'newSubject'])->name('new_subject');
 Route::get('/subject_edit/{id}',[SubjectController::class,'subjectEdit'])->name('subject_edit');
-Route::post('/subject_teacher/{id}',[SubjectController::class,'updateSubject'])->name('update_subject');
-Route::get('/subject_delete/{id}',[SubjectController::class,'subjectDelete'])->name('tsubject_delete');
+Route::post('/subject_update/{id}',[SubjectController::class,'updateSubject'])->name('update_subject');
+Route::get('/subject_delete/{id}',[SubjectController::class,'subjectDelete'])->name('subject_delete');
 Route::get('/change_subject_status/{id}',[SubjectController::class,'changeSubjectStatus'])->name('change_subject_status');
 

@@ -10,11 +10,12 @@ class SubjectController extends Controller
 {
 
     public function createSubject(){
-        return view('admin.teacher.create');
+        return view('admin.subject.create');
     }
 
     public function manageSubject(){
-        return view('admin.teacher.teacher-view',[
+
+        return view('admin.subject.subject-view',[
             'subjects'=>Subject::all(),
         ]);
 
@@ -27,26 +28,30 @@ class SubjectController extends Controller
     }
 
     public function subjectEdit($id){
-        return view('admin.teacher.teacher-edit',[
-            'subject'=>Teacher::findOrFail($id),
+        return view('admin.subject.edit-subject',[
+            'subject'=>Subject::findOrFail($id),
         ]);
     }
 
     public function updateSubject(Request $request,$id){
         Subject::saveDate($request,$id);
-        return redirect(route('manage_teacher'))->with('message','Teacher update successfully');
+        return redirect(route('manage_subject'))->with('message','subject update successfully');
     }
 
     public function subjectDelete($id){
         $subject=Subject::findOrFail($id);
-//        if (file_exists($teacher->teacher_image)){
-//            unlink($teacher->teacher_image);
-//        }
+        if (file_exists($subject->image)){
+            unlink($subject->image);
+        }
         $subject->delete();
-        return redirect()->back()->with('messager','Teacher delete successfully');
+        return redirect()->back()->with('messager','subject delete successfully');
     }
 
     public function changeSubjectStatus($id){
+        $subject=Subject::findOrFail($id);
+        $subject->status=$subject->status==0? '1':'0';
+        $subject->save();
+        return redirect()->back()->with('message','status change successfully');
 
     }
 }

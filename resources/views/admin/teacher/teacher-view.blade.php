@@ -48,7 +48,7 @@
                                             <a href="{{route('teacher_edit',['id'=>$teacher->id])}}" class="btn btn-info btn-sm">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
-                                            <a href="{{route('teacher_edit',['id'=>$teacher->id])}} " class="btn btn-{{$teacher->status ==0 ? 'primary':'secondary'}}">
+                                            <a href="{{route('change_teacher_status',['id'=>$teacher->id])}} " class="btn btn-{{$teacher->status ==0 ? 'primary':'secondary'}}">
                                                 <i class="fa-solid fa-arrow-{{$teacher->status==0?'down':'up'}}"></i>
                                             </a>
                                             <a href="{{route('teacher_delete',['id'=>$teacher->id])}}" class="btn btn-danger">

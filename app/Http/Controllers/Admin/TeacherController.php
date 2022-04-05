@@ -44,4 +44,11 @@ class TeacherController extends Controller
         $teacher->delete();
         return redirect()->back()->with('messager','Teacher delete successfully');
     }
+
+    public function changeTeacherStatus($id){
+        $teacher=Teacher::findOrFail($id);
+        $teacher->status=$teacher->status==0? '1':'0';
+        $teacher->save();
+        return redirect()->back()->with('message','Teacher status change successfully');
+    }
 }

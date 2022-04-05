@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-
+Add Teacher
 @endsection
 
 @section('body')
@@ -9,7 +9,7 @@
             <div class="col-md-10 mx-auto">
                 <div class="card">
                     <div class="card-header">
-                        <h2>Create Role</h2>
+                        <h2>Add Teacher</h2>
                     </div>
                     <div class="card-body">
                         <form action="{{route('new_teacher')}}" method="post" enctype="multipart/form-data">

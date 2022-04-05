@@ -35,12 +35,18 @@ class StudentController extends Controller
 
     public function deleteStudent($id){
         $student=StudentData::findOrFail($id);
-
+        if (file_exists($student->image)){
+            unlink($student->image);
+        }
         $student->delete();
         return redirect()->back()->with('message','delete successfully');
     }
 
     public function changeStudentstatus($id){
         $student=StudentData::findOrFail($id);
+        $student->status=$student->status==0? '1':'0';
+        $student->save();
+        return redirect()->back()->with('message','change successfully');
+
     }
 }
