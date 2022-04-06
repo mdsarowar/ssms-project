@@ -31,12 +31,12 @@
         <a href="" class="navbar-brand">Logo</a>
 
         <ul class="navbar-nav ">
-            <li class="nav-item"><a class="nav-link text-light" href="">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="{{route('home')}}">Home</a></li>
             <li class="nav-item"><a class="nav-link text-light" href="">Contact</a></li>
             @if(!Auth::check())
 
-            <li class="nav-item"><a class="nav-link text-light" href="{{route('login')}}">Login</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="{{route('register')}}">Register</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="{{route('user-login')}}">Login</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="{{route('user-register')}}">Register</a></li>
             @else
             <li class="nav-item"><a class="nav-link text-light" href="{{route('register')}}">Logout</a></li>
             <li class="nav-item"><a class="nav-link text-light" onclick="event.preventDefault();document.getElementById('logoutform').submit();" href="">Logout</a></li>

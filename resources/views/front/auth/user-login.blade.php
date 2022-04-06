@@ -1,6 +1,6 @@
 @extends('front.master')
 @section('title')
-    login
+   User login
 @endsection
 
 @section('body')
@@ -10,10 +10,10 @@
                 <div class="col-md-6 mx-auto">
                     <div class="card m-t-100">
                         <div class="card-header">
-                            <h2 class="text-center">Login</h2>
+                            <h2 class="text-center">User Login</h2>
                         </div>
                         <div class="card-body">
-                            <form action="{{route('login')}}" method="post">
+                            <form action="{{route('user-login')}}" method="post">
                                 @csrf
 
                                 <div class="form-group row mt-3">
@@ -35,7 +35,7 @@
                                 </div>
                             </form>
                             <div class="mt-3">
-                               <p>Have an account? <a href="{{route('register')}}">register</a></p>
+                                <p>Have an account? <a href="{{route('user-register')}}">register</a></p>
                             </div>
                         </div>
                     </div>

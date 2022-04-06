@@ -22,6 +22,11 @@ use App\Http\Controllers\Admin\SubjectController;
 
 Route::get('/',[PageViewController::class,'home'])->name('home');
 Route::get('/subject_details/{id}',[PageViewController::class,'subjectDetails'])->name('subject_details');
+Route::get('/enroll/{id}',[PageViewController::class,'enrollSubject'])->name('enroll');
+Route::get('/user-login',[PageViewController::class,'userLogin'])->name('user-login');
+Route::get('/user-register',[PageViewController::class,'userRegister'])->name('user-register');
+Route::post('/user-login',[PageViewController::class,'userPostLogin'])->name('user-login');
+Route::post('/user-register',[PageViewController::class,'userPostRegister'])->name('user-register');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('admin.home.home');

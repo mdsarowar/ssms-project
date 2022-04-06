@@ -12,6 +12,8 @@
             <div class="col-md-8">
                 <h1>{{$subject->title}}</h1>
                 <p style="text-align:justify ">{{$subject->short_description}}</p>
+
+                <p>Price: <span style="font-size: 22px;"></span>{{number_format($subject->fee)}}BDT </p>
             </div>
         </div>
         <div class="row mt-5">
@@ -21,7 +23,7 @@
             </div>
             <div class="col-md-4">
                 <div class="d-grid">
-                    <a href="" class="btn btn-success">Enroll</a>
+                    <a href="{{route('enroll',['id'=>$subject->id])}}" class="btn btn-success col-12 {{$check==false? 'disabled':''}} ">{{Enroll}}</a>
                 </div>
             </div>
         </div>

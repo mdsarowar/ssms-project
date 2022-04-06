@@ -1,6 +1,6 @@
 @extends('front.master')
 @section('title')
-    login
+ user Register
 @endsection
 
 @section('body')
@@ -10,16 +10,27 @@
                 <div class="col-md-6 mx-auto">
                     <div class="card m-t-100">
                         <div class="card-header">
-                            <h2 class="text-center">Login</h2>
+                            <h2 class="text-center">User Register</h2>
                         </div>
                         <div class="card-body">
-                            <form action="{{route('login')}}" method="post">
+                            <form action="{{route('user-register')}}" method="post">
                                 @csrf
-
+                                <div class="form-group row mt-3">
+                                    <label for="" class="col-md-4 col-form-label">Name</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="name">
+                                    </div>
+                                </div>
                                 <div class="form-group row mt-3">
                                     <label for="" class="col-md-4 col-form-label">Email</label>
                                     <div class="col-md-8">
                                         <input type="email" class="form-control" name="email">
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-3">
+                                    <label for="" class="col-md-4 col-form-label">Phone</label>
+                                    <div class="col-md-8">
+                                        <input type="number" class="form-control" name="phone">
                                     </div>
                                 </div>
                                 <div class="form-group row mt-3">
@@ -29,14 +40,17 @@
                                     </div>
                                 </div>
                                 <div class="form-group row mt-3">
+                                    <label for="" class="col-md-4 col-form-label">Confirm Password</label>
+                                    <div class="col-md-8">
+                                        <input type="password" class="form-control" name="password_confirmation">
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-3">
                                     <div class="d-grid">
-                                        <input type="submit" class="btn col-12 btn-success " value="Login" >
+                                        <input type="submit" class="btn col-12 btn-success " value="Register" >
                                     </div>
                                 </div>
                             </form>
-                            <div class="mt-3">
-                               <p>Have an account? <a href="{{route('register')}}">register</a></p>
-                            </div>
                         </div>
                     </div>
                 </div>
