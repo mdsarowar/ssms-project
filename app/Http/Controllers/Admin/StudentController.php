@@ -8,13 +8,17 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+    protected $student;
     public function manageStudent(){
         return view('student.student.manage',[
             'students'=>StudentData::latest()->get(),
         ]);
     }
     public function createStudent(){
-        return view('student.student.create');
+        $this->student=StudentData::where('user_id'.Auth::id())->first();
+        return view('student.student.create',[
+            'student'=>$this->student,
+        ]);
     }
 
     public function newStudent(Request $request){

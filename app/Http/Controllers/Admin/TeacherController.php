@@ -5,11 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TeacherController extends Controller
 {
+    protected $teacher;
     public function createTeacher(){
-        return view('admin.teacher.create');
+        $this->teacher=Teacher::where('user_id',Auth::id())->first();
+        return view('admin.teacher.create',[
+            'teacher'=>isset($this->teacher)? $this->teacher:null,
+        ]);
     }
 
     public function manageTeacher(){
@@ -19,8 +24,8 @@ class TeacherController extends Controller
 
     }
 
-    public function newTeacher(Request $request){
-        Teacher::saveDate($request);
+    public function newTeacher(Request $request,$id=null){
+        Teacher::saveDate($request,$id);
         return redirect()->back()->with('message','Teacher create successfully');
 
     }

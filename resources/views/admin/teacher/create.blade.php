@@ -12,25 +12,25 @@ Add Teacher
                         <h2>Add Teacher</h2>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('new_teacher')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('new_teacher',['id'=>isset($teacher)? $teacher->id:Auth::user()->id])}}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row mt-3">
                                 <label for="" class="col-md-4 col-form-label">Name</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" name="teacher_name">
+                                    <input type="text" class="form-control" name="teacher_name" value="{{isset($teacher)? $teacher->teacher_name:Auth::user()->name}}">
                                 </div>
                             </div>
                             <div class="form-group row mt-3">
                                 <label for="" class="col-md-4 col-form-label">Email</label>
                                 <div class="col-md-8">
-                                    <input type="email" class="form-control" name="teacher_email">
+                                    <input type="email" class="form-control" name="teacher_email" value="{{isset($teacher)? $teacher->teacher_email:Auth::user()->email}}">
                                 </div>
                             </div>
                             <div class="form-group row mt-3">
                                 <label for="" class="col-md-4 col-form-label">Phone</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" name="teacher_phone">
+                                    <input type="text" class="form-control" name="teacher_phone" value="{{isset($teacher) ? $teacher->phone:''}}">
                                 </div>
                             </div>
 
@@ -45,20 +45,23 @@ Add Teacher
                                 <label for="" class="col-md-4 col-form-label">image</label>
                                 <div class="col-md-8">
                                     <input type="file" class="form-control-file" name="teacher_image">
+                                    @if(isset($teacher))
+                                        <img src="{{isset($teacher)? asset($teacher->teacher_image): ''}}"></img>
+                                        @endif
                                 </div>
                             </div>
 
                             <div class="form-group row mt-3">
                                 <label for="" class="col-md-4 col-form-label">Address</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" name="teacher_address">
+                                    <input type="text" class="form-control" name="teacher_address" value="{{isset($teacher) ? $teacher->teacher_address:''}}">
                                 </div>
                             </div>
 
                             <div class="form-group row mt-3">
                                 <label for="" class="col-md-4 col-form-label">Description</label>
                                 <div class="col-md-8">
-                                    <textarea name="description" id="editor" cols="30" rows="4"></textarea>
+                                    <textarea name="description" id="editor" cols="30" rows="4">{{isset($teacher)? $teacher->description:''}}</textarea>
                                 </div>
                             </div>
 

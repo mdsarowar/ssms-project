@@ -5,6 +5,7 @@ namespace App\Models;
 use App\helper\Customhelper;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Teacher extends Model
 {
@@ -25,6 +26,7 @@ class Teacher extends Model
             'description'=>$request->description,
             'status'=>$request->status,
             'code'=>$id!= null? Teacher::find($id)->code:Customhelper::generateCode(),
+            'user_id'=>Auth::id(),
         ]);
 
 //        self::$teacher=new Teacher();

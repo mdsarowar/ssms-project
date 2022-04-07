@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
+
 class PageViewController extends Controller
 {
     protected $user;
@@ -29,7 +30,7 @@ class PageViewController extends Controller
         $this->subject=Subject::find($id);
         $this->subject->hit_count  =$this->subject->hit_count +1;
         $this->subject->save();
-        $enrollStatus=Enroll::where('subject_id',$id)->where('user_id',Auth::id()->first());
+        $enrollStatus=Enroll::where('subject_id',$id)->where('user_id',Auth::id())->first();
         if ($enrollStatus)
         {
             $this->check=false;

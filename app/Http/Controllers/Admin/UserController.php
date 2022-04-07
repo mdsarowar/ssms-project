@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use function Symfony\Component\Finder\name;
@@ -10,7 +11,9 @@ use function Symfony\Component\Finder\name;
 class UserController extends Controller
 {
     public function createUser(){
-       return view('admin.user.create');
+       return view('admin.user.create',[
+           'roles'=>Role::where('status',1)->get(),
+       ]);
     }
     public function manageUser(){
         return view('admin.user.manage',[

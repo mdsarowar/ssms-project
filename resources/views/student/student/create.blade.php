@@ -12,7 +12,7 @@
                         <h2>Create Role</h2>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('new_student_info')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('new_student_info',['id'=>isset($student)? $student->id:''])}}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row mt-3">

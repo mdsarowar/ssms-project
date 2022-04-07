@@ -48,12 +48,14 @@
                                             <a href="{{route('subject_edit',['id'=>$subject->id])}}" class="btn btn-info btn-sm">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
-                                            <a href="{{route('change_subject_status',['id'=>$subject->id])}} " class="btn btn-{{$subject->status ==0 ? 'primary':'secondary'}}">
-                                                <i class="fa-solid fa-arrow-{{$subject->status==0?'down':'up'}}"></i>
-                                            </a>
-                                            <a href="{{route('subject_delete',['id'=>$subject->id])}}" onclick="return confirm('Are you sure to delete this');" class="btn btn-danger">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </a>
+                                            @if(Auth::user()->role=='admin')
+                                                <a href="{{route('change_subject_status',['id'=>$subject->id])}} " class="btn btn-{{$subject->status ==0 ? 'primary':'secondary'}}">
+                                                    <i class="fa-solid fa-arrow-{{$subject->status==0?'down':'up'}}"></i>
+                                                </a>
+                                                <a href="{{route('subject_delete',['id'=>$subject->id])}}" onclick="return confirm('Are you sure to delete this');" class="btn btn-danger">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            @endif
 
                                         </td>
                                     </tr>

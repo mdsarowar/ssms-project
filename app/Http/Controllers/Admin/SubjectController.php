@@ -5,18 +5,25 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SubjectController extends Controller
 {
 
+    protected $subjects;
     public function createSubject(){
         return view('admin.subject.create');
     }
 
     public function manageSubject(){
 
+        if (Auth::user()->role=='admin'){
+            $this->subjects=Subject::latest()->get();
+        }elseif (Auth::user()->role=='teacher'){
+            $this->subjects=Subject::where('teacher_id',Auth::id())->latest()->get();
+        }
         return view('admin.subject.subject-view',[
-            'subjects'=>Subject::all(),
+            'subjects'=>$this->subjects,
         ]);
 
     }

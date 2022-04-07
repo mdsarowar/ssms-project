@@ -19,7 +19,15 @@ class Enroll extends Model
         self::$enroll->user_id =Auth::id();
         self::$enroll->enroll_date=date('y-m-d');
         self::$enroll->save();
+        return self::$enroll;
 
 
+    }
+
+    public function subject(){
+       return $this->belongsTo(Subject::class);
+    }
+    public function user(){
+       return $this->belongsTo(User::class);
     }
 }

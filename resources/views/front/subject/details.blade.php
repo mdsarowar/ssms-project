@@ -23,7 +23,7 @@
             </div>
             <div class="col-md-4">
                 <div class="d-grid">
-                    <a href="{{route('enroll',['id'=>$subject->id])}}" class="btn btn-success col-12 {{$check==false? 'disabled':''}} ">{{Enroll}}</a>
+                    <a href="{{route('enroll',['id'=>$subject->id])}}" class="btn btn-success col-12 {{$check==false? 'disabled':''}} ">Enroll</a>
                 </div>
             </div>
         </div>

@@ -42,8 +42,10 @@
                             <div class="form-group row mt-3">
                                 <label for="" class="col-md-4 col-form-label">User role</label>
                                 <div class="col-md-8 " >
-                                    <label for=""> <input type="radio" class="" name="role" value="user"> Teacher</label>
-                                    <label for=""> <input type="radio" class="" name="role" value="user"> User</label>
+                                    @foreach($roles as $role)
+                                    <label for=""> <input type="radio" class="" name="role" value="{{$role->name}}">{{$role->display_name}}</label>
+                                    @endforeach
+
                                 </div>
                             </div>
                             <div class="form-group row mt-3">
